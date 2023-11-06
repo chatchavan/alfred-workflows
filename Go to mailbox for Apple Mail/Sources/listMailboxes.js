@@ -23,19 +23,37 @@ let addAlfredItem = function(mailbox, accountName, pathArray) {
 }
 
 
-let isAccount = function(mbx) {
+let isAccountOld = function(mbx) {
+	// In some mailboxes, mbx.properties() yileded an error "AppleEvent handler failed. (-10000)".
 	return mbx.properties().hasOwnProperty("emailAddresses");
 }
+
+
+let isAccount = function(mbx) {
+	try {
+		mbx.container();
+	} catch (err) {
+		if (err.message == "Can't get object.") {
+			return true;
+		}
+	}
+	return false;
+}
+
+
 
 let topLevelMailboxes = function(account) {
 	let mailboxes = account.mailboxes();
 	let topLevel = [];
 	for (mb of mailboxes) {
 		let mbContainer = mb.container();
+		
 		if (isAccount(mbContainer)) {
 			topLevel.push(mb);
 		}
 	}
+	
+	debugger;
 	return topLevel;
 }
 
