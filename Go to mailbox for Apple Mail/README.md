@@ -24,4 +24,6 @@ Move the selected message to a mailbox:
 Notes
 ---
 
-Based on my knowledge of the Mail app scripting library, Apple Script doesn't have access to identify the current mailbox that is shown (or selected).
+Based on my knowledge of the Mail app scripting library, Apple Script doesn't have access to identify the current mailbox that is shown (or selected). 
+This understanding is supported by [a note on a Shortcut](https://routinehub.co/shortcut/9086/).
+
