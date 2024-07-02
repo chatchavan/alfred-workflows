@@ -2,9 +2,13 @@ Keyboard-only navigation to a folder in Apple Mail app
 ====
 Author: Chat Wacharamanotham (chat.wacharamanotham@gmail.com)
 
-Installation:
+
+Installation
+---
 * Requires [Alfred 5](https://alfred.app)
+* Download the `.alfredworkflow` file. Double click it to install in Alfred App. 
 * Specify the shortcut key in the first element of the workflow.
+
 
 Usage
 ---
