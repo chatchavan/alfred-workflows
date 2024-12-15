@@ -2,6 +2,11 @@ let app = Application('Mail')
 app.strictPropertyScope = true;
 app.strictCommandScope = true;
 
+
+let __ON_MY_MAC__ = "===RESERVED[On My Mac]===";
+
+let selectedAction = $.NSProcessInfo.processInfo.environment.objectForKey("action").js
+
 let alfredItems = [];
 
 // helpers ======================
@@ -16,7 +21,7 @@ let addAlfredItem = function(mailbox, accountName, pathArray) {
 			"pathArray": pathArray
 		}),
 		"title": mailboxName,
-		"subtitle": accountName + "::" + pathArray.join("/")
+		"subtitle": selectedAction + " " + accountName + "::" + pathArray.join("/")
 	}
 
 	alfredItems.push(entry);
@@ -74,6 +79,7 @@ let walkSubMailboxes = function(mailbox, accountName, pathArray) {
 
 // main ======================
 
+// walk mailboxes contained by accounts
 for (var i = 0; i < app.accounts.length; i++) {
 	let account = app.accounts[i];
 	let accountName = account.name();
@@ -82,6 +88,15 @@ for (var i = 0; i < app.accounts.length; i++) {
 	}
 
 }
+
+// walk mailboxes "On My Mac"
+for (var i = 0; i < app.mailboxes.length; i++) {
+	let mailbox = app.mailboxes[i];
+	let mailboxName = mailbox.name();
+	walkSubMailboxes(aMailBox, __ON_MY_MAC__, []);
+
+}
+
 
 
 // output ======================
