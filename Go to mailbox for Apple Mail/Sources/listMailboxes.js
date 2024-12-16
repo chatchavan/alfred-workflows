@@ -24,7 +24,10 @@ let addAlfredItem = function(mailbox, accountName, pathArray) {
 			"pathArray": pathArray
 		}),
 		"title": mailboxName,
-		"subtitle": selectedAction + " " + accountName + "::" + pathArray.join("/")
+		"subtitle": selectedAction + " " + 
+					(accountName == __ON_MY_MAC__ ? "On My Mac" : accountName ) + 
+					"::" + 
+					pathArray.join("/")
 	}
 
 	alfredItems.push(entry);
