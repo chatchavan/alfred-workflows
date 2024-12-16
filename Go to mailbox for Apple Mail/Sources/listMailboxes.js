@@ -86,10 +86,11 @@ let walkSubMailboxes = function(mailbox, accountName, pathArray) {
 // main ======================
 
 // walk mailboxes contained by accounts
-for (var i = 0; i < app.accounts.length; i++) {
+let accountCount = app.accounts.length;
+for (var i = 0; i < accountCount; i++) {
 	let account = app.accounts[i];
 	let accountName = account.name();
-	for (aMailBox of topLevelMailboxes(account)) {
+	for (let aMailBox of topLevelMailboxes(account)) {
 		walkSubMailboxes(aMailBox, accountName, []);
 	}
 
