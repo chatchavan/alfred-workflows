@@ -100,7 +100,6 @@ for (var i = 0; i < accountCount; i++) {
 let mailboxCount = app.mailboxes.length;
 for (var i = 0; i < mailboxCount; i++) {
 	let aMailbox = app.mailboxes[i];
-	console.log("Top-level mailbox: " + aMailbox.name());
 	walkSubMailboxes(aMailbox, __ON_MY_MAC__, []);
 
 }
