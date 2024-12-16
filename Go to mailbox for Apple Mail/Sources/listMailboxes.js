@@ -97,10 +97,11 @@ for (var i = 0; i < accountCount; i++) {
 }
 
 // walk mailboxes "On My Mac"
-for (var i = 0; i < app.mailboxes.length; i++) {
-	let mailbox = app.mailboxes[i];
-	let mailboxName = mailbox.name();
-	walkSubMailboxes(aMailBox, __ON_MY_MAC__, []);
+let mailboxCount = app.mailboxes.length;
+for (var i = 0; i < mailboxCount; i++) {
+	let aMailbox = app.mailboxes[i];
+	console.log("Top-level mailbox: " + aMailbox.name());
+	walkSubMailboxes(aMailbox, __ON_MY_MAC__, []);
 
 }
 
