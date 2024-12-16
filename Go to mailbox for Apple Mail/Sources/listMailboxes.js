@@ -1,7 +1,10 @@
+ObjC.import("stdlib")
+
 let app = Application('Mail')
 app.strictPropertyScope = true;
 app.strictCommandScope = true;
 
+let cacheMinutes = $.NSProcessInfo.processInfo.environment.objectForKey("cacheMinutes").js  || 5 // environment variable set in Alfred (requires Alfred 5.5+)
 
 let __ON_MY_MAC__ = "===RESERVED[On My Mac]===";
 
@@ -100,4 +103,7 @@ for (var i = 0; i < app.mailboxes.length; i++) {
 
 
 // output ======================
-JSON.stringify({items : alfredItems})
+JSON.stringify({
+	items : alfredItems,
+	cache: {seconds: cacheMinutes * 60},
+})
