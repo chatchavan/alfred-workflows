@@ -1,14 +1,11 @@
-ObjC.import("stdlib")
+function run(argv) {
+  ObjC.import("stdlib")
 
 let app = Application('Mail')
 app.strictPropertyScope = true;
 app.strictCommandScope = true;
 
-let cacheMinutes = $.NSProcessInfo.processInfo.environment.objectForKey("cacheMinutes").js  || 5 // environment variable set in Alfred (requires Alfred 5.5+)
-
 let __ON_MY_MAC__ = "===RESERVED[On My Mac]===";
-
-let selectedAction = $.NSProcessInfo.processInfo.environment.objectForKey("action").js
 
 let alfredItems = [];
 
@@ -23,11 +20,7 @@ let addAlfredItem = function(mailbox, accountName, pathArray) {
 			"accountName" : accountName, 
 			"pathArray": pathArray
 		}),
-		"title": mailboxName,
-		"subtitle": selectedAction + " " + 
-					(accountName == __ON_MY_MAC__ ? "On My Mac" : accountName ) + 
-					"::" + 
-					pathArray.join("/")
+		"title": mailboxName
 	}
 
 	alfredItems.push(entry);
@@ -107,7 +100,10 @@ for (var i = 0; i < mailboxCount; i++) {
 
 
 // output ======================
-JSON.stringify({
-	items : alfredItems,
-	cache: {seconds: cacheMinutes * 60},
+let output = JSON.stringify({
+	items : alfredItems
 })
+
+
+  return output;
+}
