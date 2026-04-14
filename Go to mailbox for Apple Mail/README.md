@@ -1,7 +1,8 @@
 # Keyboard-only navigation to a folder in the Apple Mail app
-
 Author: Chat Wacharamanotham (chat.wacharamanotham@gmail.com)
 
+
+![til](./demo.gif)
 
 ## Installation
 
