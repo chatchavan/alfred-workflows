@@ -2,12 +2,27 @@
 Author: Chat Wacharamanotham (chat.wacharamanotham@gmail.com)
 
 
-![til](./demo.gif)
+![demo](./doc/demo.gif)
+
+## Requirements
+- [Alfred 5.5](https://www.alfredapp.com)
+- [Alfred powerpack](https://www.alfredapp.com/powerpack/)
 
 ## Installation
 
-1. Specify the "Hotkey" entries on the left of the workflow
-2. Go to the Mail app and press any of the hotkeys. The first time will take some time to populate the list of mailboxes. (Apple Script slowed down dramatically in macOS Tahoe.)
+1. Download the workflow `GoToMailbox.alfredworkflow` from [the release page](https://github.com/chatchavan/alfred-workflows/releases).
+2. Double click on the downloaded file to install the workflow.
+3. On the very left of the workflow, there are entries labelled "Hotkey". Double click on each of them to specify the hot key.
+
+![hotkey](./doc/hotkey.gif)
+
+   - I set mine like this:
+      - Go to mail box: F1
+      - Move selected message…: F2
+      - Reload cache: F12
+
+
+4. Go to the Mail app. Press any of the hotkeys. The first time will take some time to populate the list of mailboxes. You will be notifiedd when the listing is complete
 
 ## Usage
 
